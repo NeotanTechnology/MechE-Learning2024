@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utama | MachE-Learning</title>
+    <!-- Google Fonts for Enhanced Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQd6+N0tzdgiXlNULhJ5PSh3OeVgTtFF+XQvDcg3LzBnYxk4+zLqJ6UG6A/wt6upGdr1eE7zjvFvKuklg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Fullscreen Background -->
+    <div class="background"></div>
+
+    <!-- Navigasi -->
+   <!-- Navigasi -->
+    <nav>
+    <div class="logo">
+        <img src="logo cnc.jpg" alt="Logo" class="nav-logo">
+        MachE-Learning
+    </div>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul>
+        <li><a href="index.html">Utama</a></li>
+        <li>
+            <a href="modul.html">Modul</a>
+            <ul class="submenu">
+                <li><a href="4.1.html">Keselamatan dan Peraturan dalam Bengkel</a></li>
+                <li><a href="4.2.html">Kod Kawalan Numerik (CNC)</a></li>
+                <li><a href="4.3.html">Pengenalan Mesin Kisar CNC</a></li>
+                <li><a href="4.4.html">Prinsip Pemotongan</a></li>
+		<li><a href="4.5.html">Datum dan Dimensi</a></li>
+		<li><a href="4.6.html">Parameter Pemesinan Milling</a></li>
+            </ul>
+        </li>
+        <li><a href="tutorial.html">Tutorial</a></li>
+        <li><a href="kuiz.html">Kuiz</a></li>
+        <li><a href="tentang-kami.html">Tentang Kami</a>
+	    <ul class="submenu">
+                <li><a href="tenaga-pengajar.html">Tenaga Pengajar</a></li>
+                <li><a href="ahli-pembangun.html">Ahli Pembangun</a></li>
+            </ul>
+
+	</li>
+        <li><a href="hubungi-kami.html">Hubungi Kami</a></li>
+        <li><a href="hubungi-pensyarah.html"class="active">Hubungi Pensyarah</a></li>
+    </ul>
+</nav>
+
+
+<!-- Contact Us Lecturer Section -->
+<section class="sectionHP" id="hubungipensyarah">
+     <h2 class="section-title" style="color: white;">Hubungi Pensyarah</h2>  
+<div class="contact-form">
+        <h4>Sebarang pertanyaan, boleh berhubung dengan pensyarah anda.</h4>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbxlDXJlIcv25v2Q8tZ1YV55Ij2o2P4issSgTpGhCTMaM4IV3WJIwtJxIK86IMgB3bA/exec" name="hubungi-pensyarah-form">
+            <input type="text" name="Nama" placeholder="Nama" required>
+            <input type="text" name="No.Telefon" placeholder="No. Telefon" required>
+            <input type="email" name="Email" placeholder="Emel" required>
+            <textarea name="Message" rows="5" placeholder="Mesej anda" required></textarea>
+            <input type="submit" value="Hantar" id="submit">
+        </form>
+    </div>
+</section>
+
+
+<!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Neotan Technology. All rights reserved.</p>
+    </footer>
+
+<script>
+
+// Contact Form Submission to Google Sheets (Hubungi Pensyarah)
+const scriptURL2 = 'https://script.google.com/macros/s/AKfycbyM3Y9a7Q9XhFPSEKyaQw3Q3GXP7rHLx7VQbBhO8RQFStDqCfaya_KwhURT2qwzrbw/exec'; // Replace with correct URL for "Hubungi Pensyarah"
+const contactForm2 = document.forms['hubungi-pensyarah-form'];
+
+contactForm2.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL2, { method: 'POST', body: new FormData(contactForm2) })
+    .then(response => response.json())  // Parse the response as JSON
+    .then(data => {
+        if (data.result === "success") {
+            alert("Thank you! Your form has been submitted successfully.");
+            contactForm2.reset();
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        alert("Thank you! Your form has been submitted successfully.");
+    });
+});
+
+</script>
+</body>
+</html>
